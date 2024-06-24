@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+form{
+    width: 20%;
+}
+
+fieldset{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.radio-btn{
+    display: flex;
+    justify-content: space-between;
+}
