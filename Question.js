@@ -1,5 +1,6 @@
 class Question{
     constructor(_questionStatement) {
+        this.id = _questionStatement.id
         this.statement = _questionStatement;
         this.value = 0;
         this.htmlFieldset = this.htmlFieldsetCreator(_questionStatement)
