@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
+    <script type="module" src="./script/script.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>Question <span id="current-question"> </span> sur <span id="total-questions"> </span>.</h1>
-    <form action="">
+    <h1>Question <span id="current-question"></span> sur <span id="total-questions"></span>.</h1>
+    <form id="formulaire" action="">
         
-        <div class="btn-wrapper">
-            <button><</button>
+        <div id="btn-wrapper" class="btn-wrapper">
+            <button id="prec"><</button>
             <button disabled>Valider</button>
-            <button>></button>
+            <button id="next">></button>
         </div>
     </form>
 </body>

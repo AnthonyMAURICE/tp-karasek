@@ -70,3 +70,5 @@ class Question{
         return fieldset;
     }
 }
+
+export {Question}
