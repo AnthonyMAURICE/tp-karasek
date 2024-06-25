@@ -1,5 +1,5 @@
 import {Question} from "../Question.js"
-let counter = 1
+let counter = 0
     
 const url = "../data/data.json"
 const current = document.getElementById('current-question')
@@ -16,20 +16,18 @@ async function getData(url) {
 }
 
 const data = await getData(url);
-const question = new Question(data[counter].question)
 
-current.textContent = counter
-total.textContent = data.length
+display(counter)
 
 if(counter == data.length-1){
     next.setAttribute('disabled', true)
 }
 
 prec.addEventListener('click', () =>{
-    if(counter > 1){
+    if(counter > 0){
         counter--
     }
-    if(counter == 1){
+    if(counter == 0){
         prec.setAttribute('disabled', true)
     }
     if(counter < data.length){
@@ -39,24 +37,27 @@ prec.addEventListener('click', () =>{
 })
 
 next.addEventListener('click', () =>{
-    if(counter < data.length){
+    if(counter <= data.length){
         counter++
     }
-    if(counter == data.length){
+    if(counter == data.length-1){
         next.setAttribute('disabled', true)
     }
-    if(counter > 1){
+    if(counter > 0){
         prec.removeAttribute('disabled')
     }
     display(counter)
 })
 
 function display(_counter){
-    current.textContent = counter
+    const question = new Question(data[_counter].question)
+    current.textContent = data[_counter].id
     total.textContent = data.length
+    formulaire.innerHTML = ""
+    formulaire.appendChild(question.htmlFieldset)
+    formulaire.appendChild(btns)
 }
 
-formulaire.appendChild(question.htmlFieldset)
-formulaire.appendChild(btns)
+
 
 
