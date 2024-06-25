@@ -1,9 +1,5 @@
 import {Question} from "../Question.js"
-let save = localStorage
-let counter = 0
-if(save.getItem('current-question') !== null){
-    counter = save.getItem('current-question')
-}
+let counter = 1
     
 const url = "../data/data.json"
 const current = document.getElementById('current-question')
@@ -22,30 +18,45 @@ async function getData(url) {
 const data = await getData(url);
 const question = new Question(data[counter].question)
 
-if(counter == 0){
-    prec.setAttribute('disabled', true)
-}
+current.textContent = counter
+total.textContent = data.length
 
 if(counter == data.length-1){
     next.setAttribute('disabled', true)
 }
 
 prec.addEventListener('click', () =>{
-    if(counter > 0){
+    if(counter > 1){
         counter--
     }
-    current.textContent = counter
-    save.setItem('current-question', counter)
+    if(counter == 1){
+        prec.setAttribute('disabled', true)
+    }
+    if(counter < data.length){
+        next.removeAttribute('disabled')
+    }
+    display(counter)
 })
 
 next.addEventListener('click', () =>{
-    counter++
-    current.textContent = counter
-    save.setItem('current-question', counter)
+    if(counter < data.length){
+        counter++
+    }
+    if(counter == data.length){
+        next.setAttribute('disabled', true)
+    }
+    if(counter > 1){
+        prec.removeAttribute('disabled')
+    }
+    display(counter)
 })
+
+function display(_counter){
+    current.textContent = counter
+    total.textContent = data.length
+}
 
 formulaire.appendChild(question.htmlFieldset)
 formulaire.appendChild(btns)
-current.textContent = data[counter].id
-total.textContent = data.length
+
 
