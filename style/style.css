@@ -18,9 +18,15 @@ fieldset{
     display: flex;
     flex-flow: column;
     justify-content: center;
+    margin: 10px;
 }
 
 .radio-btn{
     display: flex;
     justify-content: space-between;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: space-evenly;
 }
