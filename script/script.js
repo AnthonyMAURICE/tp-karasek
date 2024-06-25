@@ -16,6 +16,10 @@ async function getData(url) {
 }
 
 const data = await getData(url);
+const questions = []
+for (const _question of data) {
+    questions.push(new Question(_question.question));
+}
 
 display(counter)
 
@@ -50,8 +54,8 @@ next.addEventListener('click', () =>{
 })
 
 function display(_counter){
-    const question = new Question(data[_counter].question)
-    current.textContent = data[_counter].id
+    const question = questions[_counter]
+    current.textContent = _counter + 1
     total.textContent = data.length
     formulaire.innerHTML = ""
     formulaire.appendChild(question.htmlFieldset)
