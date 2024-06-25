@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="./script/script.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>Question <span id="current-question"> </span> sur <span id="total-questions"> </span>.</h1>
-    <form action="">
-        
-        <div class="btn-wrapper">
-            <button><i class="fa-solid fa-arrow-left"></i></button>
+    <h1>Question <span id="current-question"></span> sur <span id="total-questions"></span>.</h1>
+    <form id="formulaire" action="">
+        <div id="btn-wrapper" class="btn-wrapper">
+            <button id="prec"><i class="fa-solid fa-arrow-left"></i></button>
             <button disabled>Valider</button>
-            <button><i class="fa-solid fa-arrow-right"></i></button>
+            <button id="next"><i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </form>
 </body>
