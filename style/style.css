@@ -73,10 +73,11 @@ button:disabled {
 }
 
 .hidden{
-    display: none;
+    visibility: hidden;
 }
 
 .not-hidden{
+    visibility: visible;
     display: flex;
     flex-flow: column;
 }
