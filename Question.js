@@ -8,6 +8,7 @@ class Question{
     htmlFieldsetCreator() {
         let fieldset = document.createElement('fieldset');
         let statement = document.createElement('p')
+        let div = document.createElement('div')
         let radio1 = document.createElement('input');
         let label1 = document.createElement('label');
         let radio2 = document.createElement('input');
@@ -58,14 +59,15 @@ class Question{
         });
     
         fieldset.appendChild(statement);
-        fieldset.appendChild(label1);
-        fieldset.appendChild(radio1);
-        fieldset.appendChild(label2);
-        fieldset.appendChild(radio2);
-        fieldset.appendChild(label3);
-        fieldset.appendChild(radio3);
-        fieldset.appendChild(label4);
-        fieldset.appendChild(radio4);
+        fieldset.appendChild(div);
+        div.appendChild(label1);
+        div.appendChild(radio1);
+        div.appendChild(label2);
+        div.appendChild(radio2);
+        div.appendChild(label3);
+        div.appendChild(radio3);
+        div.appendChild(label4);
+        div.appendChild(radio4);
     
         return fieldset;
     }
