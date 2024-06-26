@@ -54,8 +54,9 @@ next.addEventListener('click', () =>{
 })
 
 sub.addEventListener('click', () => {
-    resultArray.push('A: ' + calculateA(), 'C: ' + calculateC(),'L: ' + calculateL(),'D: ' + calculateD(),'S: ' + calculateS(),'S2: ' + calculateSBis(), 'R: ' + calculateR())
+    resultArray.push(`A: ${calculateA()}`, `C: ${calculateC()}`,`L: ${calculateL()}`,`D: ${calculateD()}`,`S: ${calculateS()}`,`S2: ${calculateSBis()}`, `R: ${calculateR()}`)
     formulaire.remove()
+    document.querySelector('h1').textContent = 'Résultats : '
     for(let i = 0; i < resultArray.length; i++){
         const p = document.createElement('p')
         p.textContent = resultArray[i]
