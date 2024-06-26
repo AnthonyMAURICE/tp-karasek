@@ -63,7 +63,7 @@ button:hover{
 }
 
 button:disabled {
-    background-color: var(--color2);
+    background-color: var(--color3);
     cursor:not-allowed;
 }
 
