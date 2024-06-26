@@ -1,7 +1,7 @@
 import {Question} from "../Question.js"
 let counter = 0
     
-const url = "../data/data.json"
+const dataUrl = "../data/data.json"
 const current = document.getElementById('current-question')
 const total = document.getElementById('total-questions')
 const formulaire = document.getElementById('formulaire')
@@ -10,17 +10,16 @@ const prec = document.getElementById('prec')
 const next = document.getElementById('next')
 
 
-async function getData(url) {
-    const response = await fetch(url);
+async function getData(_url) {
+    const response = await fetch(_url);
     return response.json();
 }
 
-const data = await getData(url);
+const data = await getData(dataUrl);
 const questions = []
 for (const _question of data) {
     questions.push(new Question(_question.question));
 }
-
 display(counter)
 
 if(counter == data.length-1){
@@ -62,6 +61,19 @@ function display(_counter){
     formulaire.appendChild(btns)
 }
 
+function getNbQuestionsAnswered(){
+    let i = 0;
+    let foundLastQuestionAnswered = false
+    while (i < questions.length || !foundLastQuestionAnswered) {
+        console.log(i);
+        if (questions[i].value === 0){
+            foundLastQuestionAnswered = true;
+        } else {
+            i++;
+        }
+    }
+    return i;
+}
 
-
-
+console.log(btns);
+console.log(display)
