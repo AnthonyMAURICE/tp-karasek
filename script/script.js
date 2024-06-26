@@ -1,7 +1,7 @@
 import {Question} from "../Question.js"
 
 let counter = 0
-let resultArray = []
+const resultArray = []
 const dataUrl = "../data/data.json"
 const current = document.getElementById('current-question')
 const total = document.getElementById('total-questions')
@@ -56,16 +56,16 @@ next.addEventListener('click', () =>{
 })
 
 sub.addEventListener('click', () => {
+    const p = document.querySelectorAll('p')
+    const btnReturn = document.createElement('button')
     resultArray.push(calculateA(), calculateC(), calculateL(), calculateD(), calculateS(), calculateSBis(), calculateR())
     formulaire.remove()
     result.removeAttribute('class')
     result.setAttribute('class', 'not-hidden')
     document.querySelector('h1').textContent = 'Résultats : '
-    const p = document.querySelectorAll('p')
     for(let i = 0; i < resultArray.length; i++){
         p[i].textContent += resultArray[i]
     }
-    const btnReturn = document.createElement('button')
     btnReturn.textContent = 'Retour'
     btnReturn.addEventListener('click', () => {
         location.reload()
