@@ -54,12 +54,12 @@ next.addEventListener('click', () =>{
 })
 
 sub.addEventListener('click', () => {
-    resultArray.push(`A: ${calculateA()}`, `C: ${calculateC()}`,`L: ${calculateL()}`,`D: ${calculateD()}`,`S: ${calculateS()}`,`S2: ${calculateSBis()}`, `R: ${calculateR()}`)
+    resultArray.push(calculateA(), calculateC(), calculateL(), calculateD(), calculateS(), calculateSBis(), calculateR())
     formulaire.remove()
     document.querySelector('h1').textContent = 'Résultats : '
     for(let i = 0; i < resultArray.length; i++){
         const p = document.createElement('p')
-        p.textContent = resultArray[i]
+        p.textContent = `${test(i)} ${resultArray[i]}`
         body.appendChild(p)
     }
     const btnReturn = document.createElement('button')
@@ -70,12 +70,42 @@ sub.addEventListener('click', () => {
     body.appendChild(btnReturn)
 })
 
+function test(_i){
+    let testTitle =""
+    switch(_i){
+        case 0:
+            testTitle = 'Autonomie décisionnelle :'
+            break
+        case 1:
+            testTitle = 'Utilisation des compétences :'
+            break
+        case 2:
+            testTitle = 'Latitude décisionnelle (somme des deux précédents) :'
+            break
+        case 3:
+            testTitle = 'Demande psychologique :'
+            break
+        case 4:
+            testTitle = 'Soutien social de la hiérarchie :'
+            break
+        case 5:
+            testTitle = 'Soutien social de la part des collègues :'
+            break
+        case 6:
+            testTitle = 'Reconnaissance au travail :'
+            break
+        default:
+            testTitle = 'something went really wrong :'
+    }
+    return testTitle
+}
+
 function calculateA(){
     return 4*(questions[3].value + (5-questions[5].value) + questions[7].value)
 }
 
 function calculateC(){
-    return 2*(questions[0].value + (5 - questions[1].value)+ questions[2].value + questions[4].value + questions[6].value +questions[8].value)
+    return 2*(questions[0].value + (5 - questions[1].value)+ questions[2].value + questions[4].value + questions[6].value + questions[8].value)
 }
 
 function calculateL(){
@@ -83,19 +113,19 @@ function calculateL(){
 }
 
 function calculateD(){
-    return questions[9].value +questions[10].value +questions[11].value + (5-questions[12].value) + questions[13].value +questions[14].value +questions[15].value + questions[16].value +questions[17].value
+    return questions[9].value + questions[10].value + questions[11].value + (5-questions[12].value) + questions[13].value + questions[14].value +questions[15].value + questions[16].value + questions[17].value
 }
 
 function calculateS(){
-    return questions[18].value +questions[19].value +questions[20].value +questions[21].value
+    return questions[18].value + questions[19].value + questions[20].value + questions[21].value
 }
 
 function calculateSBis(){
-    return questions[22].value +questions[23].value +questions[24].value +questions[25].value
+    return questions[22].value + questions[23].value + questions[24].value + questions[25].value
 }
 
 function calculateR(){
-    return (5-questions[26].value) + (5-questions[27].value) + questions[28].value +questions[29].value + questions[30].value + questions[31].value
+    return (5-questions[26].value) + (5-questions[27].value) + questions[28].value + questions[29].value + questions[30].value + questions[31].value
 }
 
 function display(_counter){
