@@ -1,7 +1,7 @@
 import {Question} from "../Question.js"
+
 let counter = 0
 let resultArray = []
-
 const dataUrl = "../data/data.json"
 const current = document.getElementById('current-question')
 const total = document.getElementById('total-questions')
@@ -11,6 +11,7 @@ const prec = document.getElementById('prec')
 const next = document.getElementById('next')
 const sub = document.getElementById('sub')
 const body = document.querySelector('body')
+const result = document.getElementById('result')
 
 async function getData(_url) {
     const response = await fetch(_url);
@@ -19,6 +20,7 @@ async function getData(_url) {
 
 const data = await getData(dataUrl);
 const questions = []
+
 for (const _dataQuestion of data) {
     const question = new Question(_dataQuestion.question);
     for (const _radio of question.htmlFieldset.querySelectorAll('input')){
@@ -56,11 +58,12 @@ next.addEventListener('click', () =>{
 sub.addEventListener('click', () => {
     resultArray.push(calculateA(), calculateC(), calculateL(), calculateD(), calculateS(), calculateSBis(), calculateR())
     formulaire.remove()
+    result.removeAttribute('class')
+    result.setAttribute('class', 'not-hidden')
     document.querySelector('h1').textContent = 'Résultats : '
+    const p = document.querySelectorAll('p')
     for(let i = 0; i < resultArray.length; i++){
-        const p = document.createElement('p')
-        p.textContent = `${test(i)} ${resultArray[i]}`
-        body.appendChild(p)
+        p[i].textContent += resultArray[i]
     }
     const btnReturn = document.createElement('button')
     btnReturn.textContent = 'Retour'
@@ -69,36 +72,6 @@ sub.addEventListener('click', () => {
     })
     body.appendChild(btnReturn)
 })
-
-function test(_i){
-    let testTitle =""
-    switch(_i){
-        case 0:
-            testTitle = 'Autonomie décisionnelle :'
-            break
-        case 1:
-            testTitle = 'Utilisation des compétences :'
-            break
-        case 2:
-            testTitle = 'Latitude décisionnelle (somme des deux précédents) :'
-            break
-        case 3:
-            testTitle = 'Demande psychologique :'
-            break
-        case 4:
-            testTitle = 'Soutien social de la hiérarchie :'
-            break
-        case 5:
-            testTitle = 'Soutien social de la part des collègues :'
-            break
-        case 6:
-            testTitle = 'Reconnaissance au travail :'
-            break
-        default:
-            testTitle = 'something went really wrong :'
-    }
-    return testTitle
-}
 
 function calculateA(){
     return 4*(questions[3].value + (5-questions[5].value) + questions[7].value)

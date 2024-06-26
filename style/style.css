@@ -71,3 +71,12 @@ button:disabled {
     display: flex;
     justify-content: space-evenly;
 }
+
+.hidden{
+    display: none;
+}
+
+.not-hidden{
+    display: flex;
+    flex-flow: column;
+}
