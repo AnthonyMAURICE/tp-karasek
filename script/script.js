@@ -105,7 +105,7 @@ function display(_counter){
     const question = questions[_counter]
     current.textContent = _counter + 1
     total.textContent = data.length
-    formulaire.innerHTML = ""
+    formulaire.firstElementChild.remove()
     formulaire.appendChild(question.htmlFieldset)
     formulaire.appendChild(btns)
 }
@@ -135,7 +135,6 @@ function precBtnDis(){
     }
 }
 function subBtnDis(){
-    console.log()
     if(getNbQuestionsAnswered() === questions.length && sub.disabled){
         sub.removeAttribute('disabled')
     } else if(!sub.disabled){
