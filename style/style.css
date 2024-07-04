@@ -80,3 +80,13 @@ button:disabled {
     display: flex;
     justify-content: space-evenly;
 }
+
+.hidden{
+    visibility: hidden;
+}
+
+.not-hidden{
+    visibility: visible;
+    display: flex;
+    flex-flow: column;
+}
