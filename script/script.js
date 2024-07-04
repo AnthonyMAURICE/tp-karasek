@@ -56,12 +56,13 @@ next.addEventListener('click', () =>{
 })
 
 sub.addEventListener('click', () => {
-    const p = document.querySelectorAll('p')
+    const p = document.querySelectorAll('.result')
     const btnReturn = document.createElement('button')
     resultArray.push(calculateA(), calculateC(), calculateL(), calculateD(), calculateS(), calculateSBis(), calculateR())
     formulaire.remove()
     result.removeAttribute('class')
     result.setAttribute('class', 'not-hidden')
+    console.log(p, resultArray)
     document.querySelector('h1').textContent = 'Résultats : '
     for(let i = 0; i < resultArray.length; i++){
         p[i].textContent += resultArray[i]
